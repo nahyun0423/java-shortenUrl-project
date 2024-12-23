@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CreateShortenUrlTest {
-    ShortenUrlService shortenUrlService = new ShortenUrlService();
+    private ShortenUrlService shortenUrlService = new ShortenUrlService();
 
     @Test
     void 단축url_길이_테스트() {

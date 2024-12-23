@@ -17,6 +17,7 @@ public class ShortenUrlController {
     public ShortenUrlDto createShortenUrl(@RequestBody String originalUrl) {
         String newShortenUrl = shortenUrlService.createShortenUrl();
         ShortenUrl shortenUrl = new ShortenUrl(originalUrl, newShortenUrl);
+        shortenUrlService.saveShortenUrl(shortenUrl);
         return shortenUrlDto.toDto(shortenUrl);
     }
 
