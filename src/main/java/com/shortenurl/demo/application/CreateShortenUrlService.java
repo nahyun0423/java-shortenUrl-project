@@ -11,7 +11,7 @@ public class CreateShortenUrlService {
 
         for (int i = 0; i < 5; i++) {
             char a = randomWord.charAt(random.nextInt(randomWord.length()));
-            resultUrl.concat(String.valueOf(a));
+            resultUrl += String.valueOf(a);
         }
         return resultUrl;
     }
