@@ -13,7 +13,7 @@ public class ShortenUrlDto {
         this.redirectCount = redirectCount;
     }
 
-    public ShortenUrlDto toDto(ShortenUrl shortenUrl) {
+    public static ShortenUrlDto toDto(ShortenUrl shortenUrl) {
         return new ShortenUrlDto(
                 shortenUrl.getOriginalUrl(), shortenUrl.getShortenUrl(), shortenUrl.getRedirectCount());
     }
