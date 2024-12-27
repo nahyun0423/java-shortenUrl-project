@@ -7,7 +7,7 @@ public class RandomShortKeyGenerator implements ShortKeyGenerator {
     private SecureRandom secureRandom = new SecureRandom();
 
     @Override
-    public String generateKey(Object encoded) {
+    public String generateKey(String originalUrl) {
         byte[] randomBytes = new byte[5];
         secureRandom.nextBytes(randomBytes);
 
