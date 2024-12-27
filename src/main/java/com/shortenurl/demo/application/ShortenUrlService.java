@@ -1,5 +1,6 @@
 package com.shortenurl.demo.application;
 
+import com.shortenurl.demo.domain.Base64ShortKeyGenerator;
 import com.shortenurl.demo.domain.RandomShortKeyGenerator;
 import com.shortenurl.demo.domain.ShortKeyGenerator;
 import com.shortenurl.demo.domain.ShortenUrl;
@@ -17,8 +18,8 @@ public class ShortenUrlService {
         shortenUrlRepository.save(shortenUrl);
     }
 
-    public String createShortenUrl() {
-        shortKeyGenerator = new RandomShortKeyGenerator();
-        return shortKeyGenerator.generateKey();
+    public String createShortenUrl(String originalUrl) {
+        shortKeyGenerator = new Base64ShortKeyGenerator();
+        return shortKeyGenerator.generateKey(originalUrl);
     }
 }

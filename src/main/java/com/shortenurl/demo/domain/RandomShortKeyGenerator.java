@@ -7,10 +7,10 @@ public class RandomShortKeyGenerator implements ShortKeyGenerator {
     private SecureRandom secureRandom = new SecureRandom();
 
     @Override
-    public String generateKey() {
+    public String generateKey(Object encoded) {
         byte[] randomBytes = new byte[5];
         secureRandom.nextBytes(randomBytes);
 
-        return Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes);
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes).substring(0,7);
     }
 }

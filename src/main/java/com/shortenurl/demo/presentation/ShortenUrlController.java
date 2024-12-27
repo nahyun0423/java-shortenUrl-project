@@ -16,7 +16,7 @@ public class ShortenUrlController {
 
     @GetMapping(value = "/shortenUrl")
     public ShortenUrlDto createShortenUrl(@RequestBody String originalUrl) {
-        String newShortenUrl = shortenUrlService.createShortenUrl();
+        String newShortenUrl = shortenUrlService.createShortenUrl(originalUrl);
         ShortenUrl shortenUrl = new ShortenUrl(originalUrl, newShortenUrl);
         shortenUrlService.saveShortenUrl(shortenUrl);
         return new ShortenUrlDto(shortenUrl);

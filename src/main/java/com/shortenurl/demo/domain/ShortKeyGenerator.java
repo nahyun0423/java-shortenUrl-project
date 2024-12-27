@@ -1,5 +1,7 @@
 package com.shortenurl.demo.domain;
 
+import java.util.Objects;
+
 public interface ShortKeyGenerator {
-    String generateKey();
+    String generateKey(Object encoded);
 }
