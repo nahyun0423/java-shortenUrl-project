@@ -7,14 +7,9 @@ public class ShortenUrlDto {
     private String shortenUrl;
     private int redirectCount;
 
-    public ShortenUrlDto(String originalUrl, String shortenUrl, int redirectCount) {
-        this.originalUrl = originalUrl;
-        this.shortenUrl = shortenUrl;
-        this.redirectCount = redirectCount;
-    }
-
-    public static ShortenUrlDto toDto(ShortenUrl shortenUrl) {
-        return new ShortenUrlDto(
-                shortenUrl.getOriginalUrl(), shortenUrl.getShortenUrl(), shortenUrl.getRedirectCount());
+    public ShortenUrlDto(ShortenUrl shortenUrl) {
+        this.originalUrl = shortenUrl.getOriginalUrl();
+        this.shortenUrl = shortenUrl.getShortenUrl();
+        this.redirectCount = shortenUrl.getRedirectCount();
     }
 }
