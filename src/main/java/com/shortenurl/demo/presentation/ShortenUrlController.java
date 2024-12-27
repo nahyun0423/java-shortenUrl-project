@@ -20,5 +20,4 @@ public class ShortenUrlController {
         return new ShortenUrlDto(shortenUrl);
     }
 
-
 }
