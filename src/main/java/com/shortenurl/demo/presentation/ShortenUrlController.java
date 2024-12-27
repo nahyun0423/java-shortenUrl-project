@@ -4,10 +4,7 @@ import com.shortenurl.demo.application.ShortenUrlService;
 import com.shortenurl.demo.domain.ShortenUrl;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -16,7 +13,7 @@ import java.io.IOException;
 public class ShortenUrlController {
     private final ShortenUrlService shortenUrlService;
 
-    @GetMapping(value = "/shortenUrl")
+    @PostMapping(value = "/shortenUrl")
     public ShortenUrlDto createShortenUrl(@RequestBody String originalUrl) {
         String newShortenUrl = shortenUrlService.createShortenUrl(originalUrl);
         ShortenUrl shortenUrl = new ShortenUrl(originalUrl, newShortenUrl);
@@ -29,5 +26,6 @@ public class ShortenUrlController {
         String originalUrl = shortenUrlService.getOriginalUrl(shortenUrl);
         response.sendRedirect(originalUrl);
     }
+
 
 }
