@@ -1,7 +1,6 @@
 package com.shortenurl.demo.application;
 
 import com.shortenurl.demo.domain.Base64ShortKeyGenerator;
-import com.shortenurl.demo.domain.RandomShortKeyGenerator;
 import com.shortenurl.demo.domain.ShortKeyGenerator;
 import com.shortenurl.demo.domain.ShortenUrl;
 import com.shortenurl.demo.infrastructure.ShortenUrlRepository;
@@ -22,4 +21,5 @@ public class ShortenUrlService {
         shortKeyGenerator = new Base64ShortKeyGenerator();
         return shortKeyGenerator.generateKey(originalUrl);
     }
+
 }

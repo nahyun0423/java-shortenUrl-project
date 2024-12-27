@@ -6,6 +6,6 @@ public class Base64ShortKeyGenerator implements ShortKeyGenerator{
     @Override
     public String generateKey(Object encoded) {
         String originalUrl = (String) encoded;
-        return Base64.getUrlEncoder().withoutPadding().encodeToString(originalUrl.getBytes());
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(originalUrl.getBytes()).substring(0,7);
     }
 }

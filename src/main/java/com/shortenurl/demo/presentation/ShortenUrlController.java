@@ -1,8 +1,6 @@
 package com.shortenurl.demo.presentation;
 
 import com.shortenurl.demo.application.ShortenUrlService;
-import com.shortenurl.demo.domain.RandomShortKeyGenerator;
-import com.shortenurl.demo.domain.ShortKeyGenerator;
 import com.shortenurl.demo.domain.ShortenUrl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,5 +19,6 @@ public class ShortenUrlController {
         shortenUrlService.saveShortenUrl(shortenUrl);
         return new ShortenUrlDto(shortenUrl);
     }
+
 
 }
