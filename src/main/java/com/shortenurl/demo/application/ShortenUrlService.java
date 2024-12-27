@@ -22,4 +22,8 @@ public class ShortenUrlService {
         return shortKeyGenerator.generateKey(originalUrl);
     }
 
+    public String getOriginalUrl(String shortKey) {
+        ShortenUrl shortenUrl = shortenUrlRepository.findByShortenUrl(shortKey);
+        return shortenUrl.getOriginalUrl();
+    }
 }
