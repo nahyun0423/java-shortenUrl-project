@@ -26,7 +26,7 @@ public class ShortenUrlService {
         ShortenUrl shortenUrl = shortenUrlRepository.findByShortenUrl(shortKey);
 
         if (shortenUrl == null) {
-            throw new IllegalArgumentException("url을 찾을 수 없음.");
+            throw new IllegalArgumentException(shortKey);
         }
 
         return shortenUrl.getOriginalUrl();
