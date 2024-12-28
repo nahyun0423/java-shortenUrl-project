@@ -13,14 +13,14 @@ import java.sql.Connection;
 @EntityScan(basePackages = "com.shortenurl.demo.domain")
 public class DemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
-	@Bean
-	public ApplicationRunner runner(DataSource dataSource) {
-		return args -> {
-			Connection connection = dataSource.getConnection();
-		};
-	}
+    @Bean
+    public ApplicationRunner runner(DataSource dataSource) {
+        return args -> {
+            Connection connection = dataSource.getConnection();
+        };
+    }
 }

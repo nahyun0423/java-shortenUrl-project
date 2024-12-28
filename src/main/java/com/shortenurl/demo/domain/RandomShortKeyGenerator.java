@@ -11,6 +11,6 @@ public class RandomShortKeyGenerator implements ShortKeyGenerator {
         byte[] randomBytes = new byte[5];
         secureRandom.nextBytes(randomBytes);
 
-        return Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes).substring(0,7);
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes).substring(0, 7);
     }
 }
