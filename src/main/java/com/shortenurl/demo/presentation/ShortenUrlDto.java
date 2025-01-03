@@ -1,7 +1,11 @@
 package com.shortenurl.demo.presentation;
 
 import com.shortenurl.demo.domain.ShortenUrl;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class ShortenUrlDto {
     private String originalUrl;
     private String shortenUrl;

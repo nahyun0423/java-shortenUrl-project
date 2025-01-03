@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 
 @Getter
+@Entity
 public class ShortenUrl {
 
     @Id
@@ -20,5 +21,8 @@ public class ShortenUrl {
         this.originalUrl = originalUrl;
         this.shortenUrl = newShortenUrl;
         this.redirectCount = 0;
+    }
+
+    public ShortenUrl() {
     }
 }
