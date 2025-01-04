@@ -24,7 +24,7 @@ public class GlobalExceptionHandlerTest {
 
     @Test
     void testHandleIllegalArgumentException() throws Exception {
-        when(shortenUrlService.getOriginalUrl("testKey"))
+        when(shortenUrlService.redirectOriginalUrl("testKey"))
                 .thenThrow(new IllegalArgumentException("testKey"));
 
         mockMvc.perform(get("/testKey"))

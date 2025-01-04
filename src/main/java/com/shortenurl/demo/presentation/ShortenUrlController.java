@@ -26,7 +26,7 @@ public class ShortenUrlController {
 
     @GetMapping(value = "/redirect/{shortenUrl}")
     public void redirectOriginalUrl(@PathVariable String shortenUrl, HttpServletResponse response) throws IOException {
-        String originalUrl = shortenUrlService.getOriginalUrl(shortenUrl);
+        String originalUrl = shortenUrlService.redirectOriginalUrl(shortenUrl);
         response.sendRedirect(originalUrl);
     }
 }

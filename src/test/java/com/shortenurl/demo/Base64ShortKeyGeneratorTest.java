@@ -9,14 +9,14 @@ public class Base64ShortKeyGeneratorTest {
     private ShortKeyGenerator shortKeyGenerator = new Base64ShortKeyGenerator();
 
     @Test
-    void 단축url_길이_테스트() {
+    void testShortenUrlLength_7() {
         String url = "https://www.google.co.kr/";
         String testUrl = shortKeyGenerator.generateKey(url);
         Assertions.assertEquals(7, testUrl.length());
     }
 
     @Test
-    void 단축url_랜덤_생성_테스트() throws InterruptedException {
+    void testCreateShortenUrl() throws InterruptedException {
         String url = "https://www.google.co.kr/";
         String testUrl1 = shortKeyGenerator.generateKey(url);
         Thread.sleep(10);
