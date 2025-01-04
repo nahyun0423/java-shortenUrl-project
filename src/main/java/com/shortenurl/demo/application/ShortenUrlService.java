@@ -22,4 +22,14 @@ public class ShortenUrlService {
         return shortKeyGenerator.generateKey(originalUrl);
     }
 
+    public String redirectOriginalUrl(String shortKey) {
+        ShortenUrl shortenUrl = shortenUrlRepository.findByShortenUrl(shortKey);
+
+        if (shortenUrl == null) {
+            throw new IllegalArgumentException(shortKey);
+        }
+        shortenUrl.incrementRedirectCount();
+
+        return shortenUrl.getOriginalUrl();
+    }
 }

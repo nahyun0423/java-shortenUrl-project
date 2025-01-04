@@ -2,12 +2,12 @@ package com.shortenurl.demo.presentation;
 
 import com.shortenurl.demo.application.ShortenUrlService;
 import com.shortenurl.demo.domain.ShortenUrl;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Map;
 
 @RestController
@@ -24,4 +24,9 @@ public class ShortenUrlController {
         return ResponseEntity.ok(new ShortenUrlDto(shortenUrl));
     }
 
+    @GetMapping(value = "/redirect/{shortenUrl}")
+    public void redirectOriginalUrl(@PathVariable String shortenUrl, HttpServletResponse response) throws IOException {
+        String originalUrl = shortenUrlService.redirectOriginalUrl(shortenUrl);
+        response.sendRedirect(originalUrl);
+    }
 }
