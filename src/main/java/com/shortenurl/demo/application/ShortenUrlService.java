@@ -4,8 +4,12 @@ import com.shortenurl.demo.domain.Base64ShortKeyGenerator;
 import com.shortenurl.demo.domain.ShortKeyGenerator;
 import com.shortenurl.demo.domain.ShortenUrl;
 import com.shortenurl.demo.infrastructure.ShortenUrlRepository;
+import com.shortenurl.demo.presentation.ShortenUrlDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -31,5 +35,22 @@ public class ShortenUrlService {
         shortenUrl.incrementRedirectCount();
 
         return shortenUrl.getOriginalUrl();
+    }
+
+    public ShortenUrlDto getShortenUrl(String shortKey) {
+        ShortenUrl shortenUrl = shortenUrlRepository.findByShortenUrl(shortKey);
+
+        if (shortenUrl == null) {
+            throw new IllegalArgumentException();
+        }
+
+        return new ShortenUrlDto(shortenUrl);
+    }
+
+    public List<ShortenUrlDto> getAllShortenUrls() {
+        List<ShortenUrl> shortenUrls = shortenUrlRepository.findAll();
+        return shortenUrls.stream()
+                .map(ShortenUrlDto::new)
+                .collect(Collectors.toList());
     }
 }
