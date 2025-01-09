@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -24,9 +25,23 @@ public class ShortenUrlController {
         return ResponseEntity.ok(new ShortenUrlDto(shortenUrl));
     }
 
-    @GetMapping(value = "/redirect/{shortenUrl}")
+    @GetMapping(value = "/{shortenUrl}")
     public void redirectOriginalUrl(@PathVariable String shortenUrl, HttpServletResponse response) throws IOException {
         String originalUrl = shortenUrlService.redirectOriginalUrl(shortenUrl);
         response.sendRedirect(originalUrl);
+    }
+
+    //단일 조회
+    @GetMapping(value = "/get/{shortKey}")
+    public ResponseEntity<ShortenUrlDto> getShortenUrl(@PathVariable String shortKey) {
+        ShortenUrlDto shortenUrlDto = shortenUrlService.getShortenUrl(shortKey);
+        return ResponseEntity.ok(shortenUrlDto);
+    }
+
+    //전체 조회
+    @GetMapping(value = "/get/all")
+    public ResponseEntity<List<ShortenUrlDto>> getAllShortenUrl() {
+        List<ShortenUrlDto> urlList = shortenUrlService.getAllShortenUrls();
+        return ResponseEntity.ok(urlList);
     }
 }
