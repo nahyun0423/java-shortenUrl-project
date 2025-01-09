@@ -33,6 +33,7 @@ public class ShortenUrlService {
             throw new IllegalArgumentException(shortKey);
         }
         shortenUrl.incrementRedirectCount();
+        shortenUrlRepository.save(shortenUrl);
 
         return shortenUrl.getOriginalUrl();
     }
