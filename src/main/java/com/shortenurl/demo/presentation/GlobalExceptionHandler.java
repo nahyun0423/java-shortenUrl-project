@@ -13,4 +13,5 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("입력값을 찾을 수 없습니다. 입력값 : " + ex.getMessage());
     }
+
 }
